@@ -3,7 +3,7 @@ pipeline{
         label "agent1"
     }
     environment{
-        IMAGE_NAME = 'oelghareeb/python-CI-CD'
+        IMAGE_NAME = 'oelghareeb/python-ci-cd'
     }
     stages{
         stage("Build Docker image"){

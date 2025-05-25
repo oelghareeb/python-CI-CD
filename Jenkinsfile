@@ -2,16 +2,19 @@ pipeline{
     agent{
         label "agent1"
     }
+    environment{
+        IMAGE_NAME = 'oelghareeb/python-CI-CD'
+    }
     stages{
         stage("Build Docker image"){
             steps{
                 sh "echo 'Building the image' "
-                sh "docker build -t python:v${BUILD_NUMBER}"
+                sh "docker build -t ${IMAGE_NAME}:v${BUILD_NUMBER} ."
             }
         }
-        stage("Push Docker image"){
+        stage("Push Docker image to Dockerhub"){
             steps{
-                sh "docker push oelghareeb/python-CI-CD:${BUILD_NUMBER}"
+                sh "docker push ${IMAGE_NAME}:v${BUILD_NUMBER}"
             }
         }
     }

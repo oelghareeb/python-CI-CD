@@ -2,10 +2,6 @@ node('agent1') {
     def IMAGE_NAME = 'oelghareeb/python-ci-cd-groovy'
     def IMAGE_TAG = "${IMAGE_NAME}:v${env.BUILD_NUMBER}"
 
-    stage('Checkout Code') {
-        git url: 'https://github.com/oelghareeb/python-CI-CD.git', branch: 'main'
-    }
-
     stage('Build Docker image') {
         sh 'ls -la'
         sh "echo 'Building the image'"

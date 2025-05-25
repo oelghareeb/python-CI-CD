@@ -3,6 +3,7 @@ node('agent1') {
     def IMAGE_TAG = "${IMAGE_NAME}:v${env.BUILD_NUMBER}"
 
     stage('Build Docker image') {
+        sh 'ls -la'
         sh "echo 'Building the image'"
         sh "docker build -t ${IMAGE_TAG} ."
     }
